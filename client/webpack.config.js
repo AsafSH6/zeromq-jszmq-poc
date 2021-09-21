@@ -1,0 +1,46 @@
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const port = process.env.PORT ?? 9000
+const src = path.resolve(__dirname, 'src')
+const distPath = path.resolve(__dirname, 'dist')
+
+module.exports = {
+    mode: 'development',
+    entry:  [path.resolve(src, 'index.ts')],
+    module: {
+        rules: [
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
+        ],
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: path.resolve(src, 'index.html'),
+        }),
+        new webpack.ProvidePlugin({
+            process: 'process/browser',
+        })
+    ],
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
+    },
+    output: {
+        filename: 'bundle.js',
+        path: distPath,
+        publicPath: '/'
+    },
+    devServer: {
+        static: {
+            directory: distPath,
+            publicPath: '/'
+        },
+        port: port,
+        host: '0.0.0.0',
+        hot: true,
+    },
+};

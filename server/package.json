@@ -1,0 +1,19 @@
+{
+  "name": "zeromq-poc-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/zeromq": "^5.2.0",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "jszmq": "^0.1.2"
+  }
+}

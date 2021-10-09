@@ -8,7 +8,8 @@ const distPath = path.resolve(__dirname, 'dist')
 
 module.exports = {
     mode: 'development',
-    entry:  [path.resolve(src, 'index.ts')],
+    entry: [path.resolve(src, 'index.ts')],
+    devtool: 'eval-source-map',
     module: {
         rules: [
             {

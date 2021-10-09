@@ -3,13 +3,14 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const port = process.env.PORT ?? 9000
+const devWebsocketPort = process.env.DEV_WEBSOCKET_PORT || port
 const src = path.resolve(__dirname, 'src')
 const distPath = path.resolve(__dirname, 'dist')
 
 module.exports = {
     mode: 'development',
     entry: [path.resolve(src, 'index.ts')],
-    devtool: 'eval-source-map',
+    devtool: 'inline-source-map',
     module: {
         rules: [
             {
@@ -43,5 +44,8 @@ module.exports = {
         port: port,
         host: '0.0.0.0',
         hot: true,
+        client: {
+            webSocketURL: `ws://0.0.0.0:${devWebsocketPort}/ws`,
+        }
     },
 };

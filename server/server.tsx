@@ -2,9 +2,13 @@ import * as zmq from 'jszmq';
 import path from "path";
 import fs from "fs";
 
+const port = process.env.PORT || 3000
+const address = `ws://localhost:${port}`
+
 const sock = new zmq.Pub();
-sock.bind('ws://localhost:3000');
-console.log('Producer bound to port 3000');
+console.log(`Binding to ${address}`)
+sock.bind(address);
+console.log(`Producer bound to ${address}`);
 
 
 const images = path.join(__dirname, 'video_images')

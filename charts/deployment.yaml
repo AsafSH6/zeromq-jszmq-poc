@@ -72,8 +72,6 @@ spec:
           env:
             - name: PORT
               value: "80"
-            - name: MODE
-              value: "development"
             - name: DEV_WEBSOCKET_PORT
               value: $(ZEROMQ_POC_CLIENT_EXTERNAL_SERVICE_PORT_HTTP)
             - name: DEBUG

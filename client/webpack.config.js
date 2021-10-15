@@ -8,7 +8,7 @@ const src = path.resolve(__dirname, 'src')
 const distPath = path.resolve(__dirname, 'dist')
 
 module.exports = {
-    mode: 'development',
+    mode: process.env.MODE || 'development',
     entry: [path.resolve(src, 'index.ts')],
     devtool: 'inline-source-map',
     module: {

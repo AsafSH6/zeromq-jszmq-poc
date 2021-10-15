@@ -115,7 +115,7 @@ metadata:
   name: zeromq-poc-server
   namespace: zeromq-poc
 spec:
-  replicas: 4
+  replicas: 1
   selector:
     matchLabels:
       app: zeromq-poc-server

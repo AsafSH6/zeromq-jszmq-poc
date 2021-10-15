@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "webpack server --progress",
-    "build": "webpack"
+    "build": "MODE=production webpack"
   },
   "license": "ISC",
   "dependencies": {

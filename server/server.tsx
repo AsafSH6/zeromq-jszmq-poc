@@ -18,8 +18,6 @@ const frames = fs.readdirSync(images)
 
 let idx = 0
 setInterval(function(){
-    console.log('Sending frame', idx);
-
     sock.send(frames[idx].toString());
     idx = (idx + 1) % frames.length;
 }, 1000 / 29);
